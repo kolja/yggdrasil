@@ -1,0 +1,169 @@
+#!/usr/bin/env python3.12
+import sys
+import argparse
+import itertools as it
+
+sys.path.append('/Volumes/KBD_R')
+
+# flake8: disable=wrong-import-position
+from keymap import Keymap
+
+class LocalDefinitions:
+    def __init__(self):
+        self.TABLEFT = "<<"
+        self.TABRIGHT = ">>"
+        self.CMD_S = "<S>"
+        self.CMD_E = "<E>"
+        self.PERCENT = "<%>"
+        self.NAV = "<NAV>"
+        self.NUM = "<NUM>"
+        self.LALT = "<ALT>"
+        self.SZ = "ß"
+
+class KCReference:
+  def __init__(self):
+    self.TRNS = "~~"
+    self.MO = lambda x : x
+    self.LALT = lambda x : x
+    self.HYPR = lambda x : '<HYP-' + x + '>'
+    self.LCMD = lambda x : '<CMD-' + x + '>'
+    self.LCTRL = lambda x : '<CTR-' + x + '>'
+    self.F1 = "F1"
+    self.F2 = "F2"
+    self.F3 = "F3"
+    self.F4 = "F4"
+    self.F5 = "F5"
+    self.F6 = "F6"
+    self.F7 = "F7"
+    self.F8 = "F8"
+    self.F9 = "F9"
+    self.F10 = "F10"
+    self.N0 = "0"
+    self.N1 = "1"
+    self.N2 = "2"
+    self.N3 = "3"
+    self.N4 = "4"
+    self.N5 = "5"
+    self.N6 = "6"
+    self.N7 = "7"
+    self.N8 = "8"
+    self.N9 = "9"
+    self.A = "A"
+    self.B = "B"
+    self.C = "C"
+    self.D = "D"
+    self.E = "E"
+    self.F = "F"
+    self.G = "G"
+    self.H = "H"
+    self.I = "I"
+    self.J = "J"
+    self.K = "K"
+    self.L = "L"
+    self.M = "M"
+    self.N = "N"
+    self.O = "O"
+    self.P = "P"
+    self.Q = "Q"
+    self.R = "R"
+    self.S = "S"
+    self.T = "T"
+    self.U = "U"
+    self.V = "V"
+    self.W = "W"
+    self.X = "X"
+    self.Y = "Y"
+    self.Z = "Z"
+    self.BSPACE = "<-"
+    self.COMM = ","
+    self.DOT = "."
+    self.SLASH = "/"
+    self.NO = ""
+    self.RSFT = "<SHIFT>"
+    self.SPACE = "<SPACE>"
+    self.QUES = "?"
+    self.EXLM = "!"
+    self.AT = "@"
+    self.HASH = "#"
+    self.QUOTE = "'"
+    self.EQUAL = "="
+    self.TILDE = "~"
+    self.DOLLAR = "$"
+    self.CIRC = "^"
+    self.DQT = "\""
+    self.PLUS = "+"
+    self.ASTERISK = "*"
+    self.GRAVE = "`"
+    self.AMPR = "&"
+    self.COLON = ":"
+    self.SCOLON = ";"
+    self.UNDERSCORE = "_"
+    self.MINUS = "-"
+    self.RELOAD = "↺"
+    self.LBRC = "["
+    self.RBRC = "]"
+    self.BSLASH = "\\"
+    self.LCBR = "{"
+    self.RCBR = "}"
+    self.LEFT_PAREN = "("
+    self.RIGHT_PAREN = ")"
+    self.LEFT = "<-"
+    self.UP = "↑"
+    self.DOWN = "↓"
+    self.RIGHT = "->"
+    self.ENTER = "↵"
+    self.LABK = "<"
+    self.RABK = ">"
+    self.PIPE = "|"
+    self.TAB = "->>"
+    self.ESCAPE = "<ESC>"
+
+KC = KCReference()
+LOC = LocalDefinitions()
+
+layout = Keymap(KC, LOC).keymap
+
+def fmt_key(k):
+    ll = 8
+    if callable(k):
+        key = k("x")
+    else:
+        key = k
+    key += ' ' * (len(key)%2) # pad with ' ' to even length
+
+    padding = (ll - (len(key))) // 2
+    return ' ' * padding + key + ' ' * padding
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('option', nargs='?', choices=['BASE', 'NAV', 'NUM', 'FN'], help='specify a layer')
+    args = parser.parse_args()
+
+    layers = {
+        'BASE': 0,
+        'NUM': 1,
+        'NAV': 2,
+        'FN': 3
+    }
+
+    option = args.option
+    if option is not None and option not in layers:
+        sys.exit(f'Invalid option: {option}. Please choose from BASE, NAV, NUM or FN.')
+
+    if option is None:
+        for layername in ['BASE', 'NAV', 'NUM', 'FN']:
+            print(layername + ":")
+            idx = layers[layername]
+            printLayout(layout[idx])
+    else:
+        idx = layers[option]
+        printLayout(layout[idx])
+
+
+def printLayout(layout):
+    batched = list(it.batched(layout, 10))
+    for row in batched:
+        print(''.join(map(fmt_key, row)))
+
+if __name__ == '__main__':
+    main()
