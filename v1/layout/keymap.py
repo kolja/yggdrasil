@@ -21,8 +21,8 @@ class Keymap:
         ],
         [ # F KEY LAYER
             KC.F1, KC.F2, KC.F3, KC.F4, KC.F5,      		KC.F6, KC.F7, KC.F8, KC.F9, KC.F10,
-            KC.HYPR(KC.A), KC.HYPR(KC.R), KC.HYPR(KC.S), KC.HYPR(KC.T), KC.HYPR(KC.G), KC.LCTRL(KC.H), KC.LCTRL(KC.J), KC.LCTRL(KC.K), KC.LCTRL(KC.L), KC.LCTRL(KC.ENTER),
-            KC.Z, KC.X, KC.C, KC.D, KC.V,      		        KC.K, KC.H, KC.COMM, KC.DOT, KC.ENTER,
+            KC.HYPR(KC.A), KC.HYPR(KC.R), KC.HYPR(KC.S), KC.HYPR(KC.T), KC.HYPR(KC.G), KC.LCTRL(KC.LEFT), KC.LCTRL(KC.DOWN), KC.LCTRL(KC.UP), KC.LCTRL(KC.RIGHT), KC.LCTRL(KC.ENTER),
+            KC.Z, KC.X, KC.C, KC.D, KC.V,      		        KC.LGUI(KC.LEFT), KC.LGUI(KC.DOWN), KC.LGUI(KC.UP), KC.LGUI(KC.RIGHT), KC.ENTER,
             KC.NO, KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, 	    KC.TRNS, KC.TRNS, KC.TRNS, KC.TRNS, KC.NO,
         ],
     ]
