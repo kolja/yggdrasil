@@ -1,0 +1,59 @@
+body {
+  font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 16px;
+  background-color: #EFD7A8;
+  color: #3F2F0D;
+}
+
+table {
+  margin: 20px;
+}
+td {
+  width: 170px;
+  align: bottom;
+}
+tr#spacer {
+  height: 70px;
+}
+label {
+  display: block;
+  align: bottom;
+}
+
+select {
+  font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
+  padding: 8px;
+  border: 2px solid #825E17;
+  border-radius: 7px;
+  font-size: 18px;
+  background-color: #FBEDD0;
+  color: #7C5403;
+  width: 200px;
+}
+
+input[type="text"] {
+  font-family: "Kode Mono", monospace;
+  font-weight: bold;
+  font-optical-sizing: auto;
+  color: #7C5403;
+  padding: 8px;
+  border: 2px solid #7C5403;;
+  border-radius: 7px;
+  font-size: 18px;
+  width: 40px;
+}
+input:focus {
+  outline-width: 0;
+  outline: none;
+}
+
+div.output {
+  font-family: "Kode Mono", monospace;
+  font-weight: 700;
+  color: #7C5403;
+  font-size: 30px;
+  margin-top: 10px;
+}

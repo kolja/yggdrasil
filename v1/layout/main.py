@@ -26,6 +26,7 @@ class localDefinitions:
         self.LALT = KC.HT(KC.LALT(KC.U), KC.LALT)
         # tap => s, hold => LGUI
         self.CMD_S = KC.HT(KC.S, KC.LGUI, prefer_hold=False)
+        self.CMD_S = KC.HT(KC.SPACE, KC.LGUI, prefer_hold=False)
         self.CMD_E = KC.HT(KC.E, KC.LGUI, prefer_hold=False)
         self.PERCENT = KC.HT(KC.PERCENT, KC.LGUI)
         # Layers

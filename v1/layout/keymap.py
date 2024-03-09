@@ -5,7 +5,7 @@ class Keymap:
             KC.Q, KC.W, KC.F, KC.P, KC.B,      		        KC.J, KC.L, KC.U, KC.Y, KC.BSPACE,
             KC.A, KC.R, LOC.CMD_S, KC.T, KC.G,              KC.M, KC.N, LOC.CMD_E, KC.I, KC.O,
             KC.Z, KC.X, KC.C, KC.D, KC.V,      		        KC.K, KC.H, KC.COMM, KC.DOT, KC.SLASH,
-            KC.NO, KC.LCTRL, LOC.LALT, KC.MO(LOC.NAV), KC.LCMD, KC.ESCAPE, KC.MO(LOC.NUM), KC.RSFT, KC.SPACE, KC.NO,
+            KC.NO, KC.LCTRL, LOC.LALT, KC.MO(LOC.NAV), KC.LCMD, KC.ESCAPE, KC.MO(LOC.NUM), KC.RSFT, LOC.CMD_SPACE, KC.NO,
         ],
         [ # NUM LAYER
             KC.QUES, KC.EXLM, KC.AT, KC.HASH, KC.QUOTE,             KC.PLUS,  KC.N7, KC.N8, KC.N9, KC.EQUAL,

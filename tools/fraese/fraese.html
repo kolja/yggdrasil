@@ -1,0 +1,46 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+<form onsubmit="updatePage(event)">
+  <table>
+    <tr>
+      <td>
+        <label for="material">Material</label>
+      </td>
+      <td>
+        <select id="material" onchange="updatePage(event)">
+          <option value="GussAluminium">Guss-Aluminium</option>,
+          <option value="AluminiumKnetlegierung">Aluminium Knetlegierung</option>,
+          <option value="Weichkunststoff">Weichkunststoff</option>,
+          <option value="Hartkunststoff">Hartkunststoff</option>,
+          <option value="HolzHart" selected="true">Holz Hart</option>,
+          <option value="HolzWeich">Holz Weich</option>,
+          <option value="MDF">MDF</option>,
+          <option value="Messing">Messing, Kupfer, Bronze</option>,
+          <option value="Stahl">Stahl</option>,
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <label for="textfield">Durchmesser</label>
+      </td>
+      <td>
+        <input type="text" size="3" id="durchmesser" onchange="updatePage(event)"> mm
+      </td>
+    </tr>
+    
+    <tr id="spacer">
+      <td><div id="drehzahl" class="output"></div></td>
+      <td><div id="vorschub" class="output"></div></td>
+    </tr>
+    
+    <tr>
+      <td>Drehzahl <em>(U/min)</em></td>
+      <td>Vorschub <em>(mm/min)</em></td>
+    </tr>
+  </table>
+
+</form>
+<div id="output"></div>
